@@ -130,7 +130,7 @@ const Footer = () => {
         </div>
         <div className="text-center py-6 border-t border-gray-400 mt-10">
           <p className="text-gray-200">
-            &copy; 2024 All rights reserved || Made with ❤️ by Maria Adil
+            &copy; 2024 All rights reserved || Made with ❤️ by Waseem Tasawar
           </p>
         </div>
       </div>
