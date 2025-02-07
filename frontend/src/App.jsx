@@ -14,6 +14,7 @@ import About from "./components/Footer/About";
 import Blog from "./components/Footer/Blog";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Signup from "./components/Logins/Signup.jsx";
 
 const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -61,6 +62,7 @@ const Home = ({ handleOrderPopup }) => (
     <AppStore />
     <Books />
     <Testimonial />
+    <Signup />
   </>
 );
 
