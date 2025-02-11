@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/website/logo.png";
 import { FaCartShopping } from "react-icons/fa6";
 import DarkMode from "./DarkMode";
+import Signup from "../Logins/Signup";
 
 const Menu = [
   {
@@ -27,6 +28,12 @@ const Menu = [
 ];
 
 const Navbar = ({ handleOrderPopup }) => {
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
+
+  const toggleSignupModal = () => {
+    setIsSignupOpen(!isSignupOpen); // Toggle modal visibility
+  };
+
   return (
     <>
       <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white transition duration-300 ease-in-out">
@@ -64,10 +71,26 @@ const Navbar = ({ handleOrderPopup }) => {
                 Order
                 <FaCartShopping className="text-xl text-white drop-shadow-sm" />
               </button>
+              {/* Sign Up Button */}
+              <button
+                onClick={toggleSignupModal}
+                className="bg-gradient-to-r from-blue-500 to-green-500 hover:scale-105 transition-transform duration-200 text-white py-2 px-6 rounded-full flex items-center gap-3 shadow-lg"
+              >
+                Sign Up
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Modal to show Signup form */}
+      {isSignupOpen && (
+        <div
+          onClick={(e) => e.stopPropagation()} // Prevent closing the modal when clicking inside it
+        >
+          <Signup />
+        </div>
+      )}
     </>
   );
 };
