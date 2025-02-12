@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const app = express();
 const cors = require("cors");
 app.use(express.json());
@@ -7,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 const userRouter = require("./routes/userRoutes");
+const otpRoutes = require("./routes/otpRoutes");
 
 const indexPage = (req, res) => {
   res.status(200).json({
@@ -18,5 +20,7 @@ const indexPage = (req, res) => {
 app.get("/", indexPage);
 
 app.use("/api/users", userRouter);
+app.use("/api/otp", otpRoutes);
+app;
 
 module.exports = app;
